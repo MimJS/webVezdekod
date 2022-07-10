@@ -1,4 +1,4 @@
-import { List, Panel, Button, NativeSelect } from "@vkontakte/vkui";
+import { List, Panel, Button, NativeSelect, Pagination } from "@vkontakte/vkui";
 import { useEffect, useState } from "react";
 import { CustomMail } from "../../../../components";
 import { apiRequest } from "../../../../lib/modules/apiRequest";
@@ -12,6 +12,7 @@ export const MainPanel = ({ id }) => {
     window.localStorage.getItem("scheme") || "light"
   );
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const addId = (id) => {
     if (selectIds.includes(id)) {
@@ -25,10 +26,17 @@ export const MainPanel = ({ id }) => {
   };
 
   const addBlocks = async (event) => {
-    const { status, data } = await apiRequest("getMailsByPage", { page });
+    console.log(event);
+    const { status, data } = await apiRequest("getMailsByPage", {
+      page: event,
+    });
+    console.log(data)
     if (status) {
-      let newData = mails.slice(10, 19).push(data);
-      setPage(page + 1);
+      console.log(mails);
+      let newData = mails.reverse().slice(0, 9);
+      newData.reverse().push(...data);
+      console.log(newData);
+      setPage(event);
       return setMails(newData);
     } else {
       return;
@@ -39,7 +47,8 @@ export const MainPanel = ({ id }) => {
     const getMails = async () => {
       const { status, data } = await apiRequest("getMails", { page });
       if (status) {
-        return setMails(data);
+        setTotalPages(data.pages);
+        return setMails(data.mails);
       } else {
         return;
       }
@@ -58,7 +67,7 @@ export const MainPanel = ({ id }) => {
   });
 
   return (
-    <Panel id={id} onScroll={e => console.log('1')}>
+    <Panel id={id} onScroll={(e) => console.log("1")}>
       {selectIds.length < 0 ? (
         <>
           <Button size="m" mode="primary" stretched={false}>
@@ -81,8 +90,18 @@ export const MainPanel = ({ id }) => {
               <option value={"cats"}>Кошки</option>
             </NativeSelect>
             {mails.map((v, i) => {
+              if (!v) {
+                return;
+              }
               return <CustomMail addId={addId} key={i} id={i} {...v} />;
             })}
+            <Pagination
+              currentPage={page}
+              siblingCount={0}
+              boundaryCount={1}
+              onChange={addBlocks}
+              totalPages={totalPages}
+            />
           </List>
         </>
       ) : null}

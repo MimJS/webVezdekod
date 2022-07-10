@@ -16,7 +16,15 @@ app.listen(4000, () => console.log("PORT: 4000"));
 app.post("/api.php", (req, res) => {
   const { method, payload } = req.body;
   if (method == "getMails") {
-    return res.send({ status: true, data: mails.slice(0,19) });
+    const mailsData = mails.slice()
+    mailsData.length = 20
+    return res.send({
+      status: true,
+      data: {
+        mails: mailsData,
+        pages: Math.floor(mails.length / 20),
+      },
+    });
   }
   if (method == "getMailsByPage") {
     let mailData = mails.slice();
