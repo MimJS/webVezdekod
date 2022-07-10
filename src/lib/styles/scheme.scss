@@ -1,0 +1,43 @@
+body[scheme="light"] {
+  --background_content: #e9ebec !important;
+  --mails_bg: white;
+  --text_third: black;
+  --vkui--color_field_background: transparent !important;
+}
+
+body[scheme="dark"] {
+  --background_content: #19191a !important;
+  --mails_bg: #313132;
+  --text_secondary: #76787a;
+  --text_primary: white;
+  --vkui--color_text_primary: white;
+  --text_third: white;
+  --vkui--color_field_background: transparent !important;
+}
+
+body[scheme="dogs"] {
+  --background_content: transparent !important;
+  --mails_bg: rgba(255, 255, 255, .97);
+  --text_third: black;
+  --vkui--color_field_background: transparent !important;
+  & {
+    .vkuiPanel__in {
+      background: url("../media/dogs.jpg");
+      background-size: 50%;
+    }
+  }
+}
+
+body[scheme="cats"] {
+    --background_content: transparent !important;
+    --mails_bg: rgba(255, 255, 255, .97);
+    --text_third: black;
+    --vkui--color_field_background: transparent !important;
+    & {
+      .vkuiPanel__in {
+        background: url('../media/cats.webp');
+        background-size: 50%;
+      }
+    }
+  }
+  

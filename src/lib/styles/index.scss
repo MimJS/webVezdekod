@@ -1,0 +1,22 @@
+@import "./scheme.scss";
+
+.vkuiDropdown {
+  .Popper__content {
+    background: var(--background_page);
+    overflow: hidden;
+    border-radius: 10px;
+  }
+}
+
+.vkuiPanel.vkuiPanel--regular .vkuiPanel__in,
+.vkuiPanel.vkuiPanel--regular::after {
+  background-color: var(--background_content);
+}
+
+.vkuiFormField .vkuiFormField__border {
+  background: transparent !important;
+}
+
+.vkuiFormField:focus-within .vkuiFormField__border {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+}

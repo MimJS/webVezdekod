@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "@vkontakte/icons": "^1.176.0",
+    "@vkontakte/vkui": "^4.33.3",
+    "axios": "^0.27.2",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "sass": "^1.53.0"
+  },
+  "name": "10",
+  "scripts": {
+    "start": "react-scripts start | node ./backend/index.js",
+    "test": "react-scripts start | nodemon ./backend/index.js"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

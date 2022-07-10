@@ -1,0 +1,149 @@
+#MainPanel {
+  & {
+    overflow: hidden;
+  }
+  .List {
+    & {
+      background: var(--mails_bg);
+      margin: 20px;
+      border-radius: 15px;
+      padding: 10px;
+      overflow: hidden;
+      overflow-y: auto;
+      height: 100%;
+    }
+    .Mail {
+      &--unread {
+        .Mail {
+          &__before--name,
+          &__in span:first-child {
+            font-weight: 500;
+          }
+        }
+      }
+      &__before--name,
+      &__after,
+      &__in span {
+        font-size: 13px;
+      }
+      &__after,
+      &__in span:last-child {
+        color: #93969b;
+      }
+      &__before--name,
+      &__in:first-child {
+        color: var(--vkui--color_text_primary);
+      }
+      .SimpleCell__indicator {
+        min-width: fit-content;
+        width: fit-content;
+        display: inline-block;
+        padding-left: 10px;
+      }
+      &__indicator {
+        display: flex;
+        align-items: center;
+        .Icon,
+        span {
+          &:not(:first-child) {
+            margin-left: 5px;
+          }
+        }
+      }
+      &__before {
+        & {
+          display: flex;
+          align-items: center;
+          min-width: calc(18% + 44px + 12px);
+          width: calc(18% + 44px + 12px);
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        &--menu {
+          & {
+            display: flex;
+            align-items: center;
+          }
+          .checkValue {
+            display: flex;
+            padding: 0;
+            margin: 0;
+            width: 28px;
+            min-width: 28px;
+            height: 100%;
+            background-color: transparent;
+            border: none;
+            align-items: center;
+            justify-content: center;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            &--unread:before {
+              background-color: var(--vkui--color_icon_accent) !important;
+            }
+            &:before {
+              content: "";
+              width: 8px;
+              height: 8px;
+              border-radius: 50%;
+              display: block;
+              background-color: #b6b8be;
+              height: 6px;
+              width: 6px;
+              transition: background-color 0.25s linear;
+              position: relative;
+              z-index: 100;
+            }
+          }
+          .Checkbox {
+            & {
+              width: 24px;
+              height: 24px;
+              min-width: 24px;
+              min-height: 24px;
+            }
+            &__icon,
+            &__icon > div,
+            &__icon > div > svg {
+              width: 16px;
+              height: 16px;
+              min-width: 16px;
+              min-height: 16px;
+            }
+          }
+        }
+        &--name {
+          padding-left: 12px;
+          flex-grow: 1;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+      &__after {
+        text-align: right;
+        white-space: nowrap;
+        margin-left: 12px;
+        min-width: 62px;
+        width: 62px;
+      }
+      &__in {
+        & {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        span {
+          & {
+            display: inline;
+          }
+          &:first-child {
+            min-width: fit-content;
+          }
+          &:last-child {
+            margin-left: 12px;
+          }
+        }
+      }
+    }
+  }
+}
