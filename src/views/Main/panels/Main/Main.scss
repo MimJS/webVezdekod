@@ -1,6 +1,5 @@
 #MainPanel {
   & {
-    overflow: hidden;
   }
   .List {
     & {
@@ -8,9 +7,6 @@
       margin: 20px;
       border-radius: 15px;
       padding: 10px;
-      overflow: hidden;
-      overflow-y: auto;
-      height: 100%;
     }
     .Mail {
       &--unread {
