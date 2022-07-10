@@ -12,7 +12,8 @@
   "name": "10",
   "scripts": {
     "start": "react-scripts start | node ./backend/index.js",
-    "test": "react-scripts start | nodemon ./backend/index.js"
+    "test": "react-scripts start | nodemon ./backend/index.js",
+    "build":"react-scripts build"
   },
   "browserslist": {
     "production": [
